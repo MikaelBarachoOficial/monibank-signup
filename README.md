@@ -2,6 +2,6 @@
 
 <hr>
 
-<p align="center">Formulário de criação de contas para o banco virtual MoniBank.</p>
+<p align="center">Formulário de criação de contas para o banco virtual MikaBank.</p>
 
 
