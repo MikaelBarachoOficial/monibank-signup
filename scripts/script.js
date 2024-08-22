@@ -3,6 +3,17 @@ import itIsLegalAge from "./validate-age.js"
 
 // Collects all required fields 
 const allRequired = document.querySelectorAll('[required]')
+console.log(allRequired, "allRequired")
+
+const form = document.querySelector('[data-formulario]')
+const sendBtn = document.querySelector('[data-botao-enviar]')
+
+// Verifies all required fields if the btn is pressed
+sendBtn.addEventListener('click', e => {
+    allRequired.forEach(field => {
+        verifyField(field)
+    })
+})
 
 const mensagens = {
     nome: {
@@ -43,12 +54,30 @@ const errors = [
     'customError'
 ]
 
-console.log(allRequired, "allRequired")
+// SUBMIT FORM
+form.addEventListener("submit", event => {
+    event.preventDefault()
+    if (document.getElementById('termos').checked) {
+        
+        let register 
+
+        allRequired.forEach(field => {
+            field.type !== 'checkbox' ? 
+            register = {...register, [field.name]: field.value} : field.checked = false
+            field.value = ''
+            console.log(register)
+        })
+
+        localStorage.setItem('register', JSON.stringify(register))
+        
+        window.location.href = '../pages/abrir-conta-form-2.html'
+    }
+})
 
 // For each required field
 allRequired.forEach(field => {
     // Add a triggered event for when the field is blurred
-   field.addEventListener('blur', () => verifyField(field))
+   field.addEventListener('input', () => verifyField(field))
    // Prevents the default browser events happen when it's invalid
    field.addEventListener('invalid', event => event.preventDefault())
 })

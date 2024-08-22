@@ -80,6 +80,10 @@
     width: 50%;
 }
 
+.termos__input {
+    cursor: pointer;
+}
+
 .termos__texto {
     line-height: 20px;
     display: inline;
@@ -97,6 +101,18 @@
     font-size: 18px;
     line-height: 22px;
     color: var(--branco);
+
+    cursor: pointer;
+}
+
+.qrCode {
+    background-color: var(--azul-claro);
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.formulario__botao:active, .camera__botao:active {
+    background-color: rgb(90, 161, 255);
 }
 
 .formulario__imagem {

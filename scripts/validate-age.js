@@ -5,6 +5,7 @@ export default function itIsLegalAge (field) {
         // Sets a custom error on field's validity
         field.setCustomValidity('User must be over of legal age')
     } else {
+        field.setCustomValidity('')
         return true
     }
 }

@@ -3,8 +3,10 @@ export default function itIsCpf(field) {
     cpf = cpf.match(/\d{1,11}/)[0];
 
     if (validateSameNumbers(cpf) || validateCpfFirstDigit(cpf) || validateCpfSecondDigit(cpf)) {
-        field.setCustomValidity('The CPF does not exist')
+        // Sets a custom error on field's validity
+        field.setCustomValidity('This CPF does not exist')
     } else {
+        field.setCustomValidity('')
         return true
     }
    
